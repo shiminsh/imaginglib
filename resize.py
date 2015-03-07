@@ -10,6 +10,31 @@ from PIL import Image
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
+def extension(mypath, outputpath, convert):
+    outfilepath = os.path.join(outputpath, id_generator() + "." + imghdr.what(mypath) )
+    f, e = os.path.splitext(mypath)
+    outfile = outfilepath + convert
+    print convert
+    print outfile
+    if mypath != outfile:
+        try:
+            Image.open(mypath).save(outfile)
+        except IOError:
+            print("cannot convert", mypath)
+def convertlist(mypath, outputpath, convert):
+    onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
+    print onlyfiles
+    onlyimagefile = []
+    for x in onlyfiles:
+        try:
+            Image.open(os.path.join(mypath, x))
+            onlyimagefile.append(x)
+        except:
+            pass
+    for y in onlyimagefile:
+        convertion(os.path.join(mypath,y), outputpath, convert)
+    print onlyimagefile
+
 def rotate(mypath, outputpath, degree):
     outfile = os.path.join(outputpath, id_generator() + "." + imghdr.what(mypath) )
     im = Image.open(mypath)
@@ -60,6 +85,7 @@ parser.add_argument("-ro","--rotate", help="image to rotate",
 parser.add_argument("-p","--picture", help="display the resized image")
 parser.add_argument("-o","--output", help="image path")
 parser.add_argument("-d","--directory", help="path directory")
+parser.add_argument("-ext","--convert", help="convert any images to any extension")
 parser.add_argument("-w","--width", help="image width",
                      type=int)
 parser.add_argument("-i","--height", help="image height",
@@ -78,3 +104,8 @@ elif args.rotate:
             rotate(args.picture, args.output, args.degree)
         elif args.directory:
             rotatelist(args.directory, args.output, args.degree)
+elif args.convert:
+    if args.picture:
+        extension(args.picture, args.output, args.convert)
+    elif args.directory:
+        convertlist(args.directory, args.output, args.convert)
