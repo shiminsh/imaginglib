@@ -20,13 +20,19 @@ And run this command to get all information how to use features:-
  
 Commands:-
  
-*-rz : used for resizing image.*
-*-ro : used for rotating image.*
-*-con : used for converting extension of image.*
-*-crp : used for cropping image.*
-*-p : used for giving path of an image.*
-*-d : used for giving path of directory containg images.*
-*-o : used for giving path of directory in which images got saved after any operation.*
+    *-rz : used for resizing image.*
+
+    *-ro : used for rotating image.*
+
+    *-con : used for converting extension of image.*
+
+    *-crp : used for cropping image.*
+
+    *-p : used for giving path of an image.*
+
+   *-d : used for giving path of directory containg images.*
+
+   *-o : used for giving path of directory in which images got saved after any operation.*
  
 ## For Resizing Images
  
