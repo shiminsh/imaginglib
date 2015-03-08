@@ -20,26 +20,26 @@ And run this command to get all information how to use features:-
  
 Commands:-
  
--rz  : used for resizing image.
--ro  : used for rotating image.
--con : used for converting extension of image.
--crp : used for cropping image.
--p   : used for giving path of an image.
--d   : used for giving path of directory containg images.
--o   : used for giving path of directory in which images got saved after any operation.
+*-rz : used for resizing image.*
+*-ro : used for rotating image.*
+*-con : used for converting extension of image.*
+*-crp : used for cropping image.*
+*-p : used for giving path of an image.*
+*-d : used for giving path of directory containg images.*
+*-o : used for giving path of directory in which images got saved after any operation.*
  
-## For Resizing
+## For Resizing Images
  
     -w : used for width, provide width of image you want in place of <width> after -w.
     -i : used for height, provide height of image you want in place of <height> after -w.
  
 ### For one image
  
-    ``$ python imaginglib.py -rz -p </path/of/input/image> -o </path/of/input/directory/> -w <width> -i <height>``
+    $ python imaginglib.py -rz -p </path/of/input/image> -o </path/of/input/directory/> -w <width> -i <height>
  
 ### For images in a directory
  
-    ``$ python imaginglib.py -rz -d </path/of/input/directory/> -o </path/to/output/directory/> -w <width> -i <height>``
+    $ python imaginglib.py -rz -d </path/of/input/directory/> -o </path/to/output/directory/> -w <width> -i <height>
  
 ## For Rotating Images
  
@@ -47,11 +47,11 @@ Commands:-
  
 ### For one image
  
-    ``$ python imaginglib.py -ro -p </path/of/input/image> -o </path/to/output/directory/> -deg <degree>``
+    $ python imaginglib.py -ro -p </path/of/input/image> -o </path/to/output/directory/> -deg <degree>
  
 ### For images in a directory
  
-    ``$ python imaginglib.py -ro -d </path/of/input/directory/> -o </path/to/output/directory/> -deg <degree>``
+    $ python imaginglib.py -ro -d </path/of/input/directory/> -o </path/to/output/directory/> -deg <degree>
  
 ## For Converting extension of Images
  
@@ -60,11 +60,11 @@ Commands:-
  
 ### For one image
  
-    ``$ python imaginglib.py -con -p </path/of/input/image> -o </path/to/output/directory/> -ext <.extension>``
+    $ python imaginglib.py -con -p </path/of/input/image> -o </path/to/output/directory/> -ext <.extension>
  
 ### For images in a directory
  
-    ``$ python imaginglib.py -con -d </path/of/input/directory/> -o </path/to/output/directory/> -ext <.extension>``
+    $ python imaginglib.py -con -d </path/of/input/directory/> -o </path/to/output/directory/> -ext <.extension>
  
 ## For Cropping Image
    
@@ -76,8 +76,8 @@ Commands:-
  
 ### For one image
  
-    ``$ python imaginglib.py -crp -p </path/of/input/image> -o </path/to/output/directory/> -l <left> -up <upper> -r <right> -lo <lower>``
+    $ python imaginglib.py -crp -p </path/of/input/image> -o </path/to/output/directory/> -l <left> -up <upper> -r <right> -lo <lower>
  
 ### For images in a directory
  
-    ``$ python imaginglib.py -crp -d </path/of/input/directory/> -o </path/to/output/directory/> -l <left> -up <upper> -r <right> -lo <lower>``
+    $ python imaginglib.py -crp -d </path/of/input/directory/> -o </path/to/output/directory/> -l <left> -up <upper> -r <right> -lo <lower>
