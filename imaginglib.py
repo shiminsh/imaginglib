@@ -54,6 +54,10 @@ class Utility(object):
         else:
             return False
 
+    def ensure_output_dir(self, directory):
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
 
 class Resize(object):
 
@@ -196,6 +200,7 @@ class Crop(object):
 if __name__ == "__main__":
     resize, rotate = Resize(), Rotate()
     convert, crop = Conversion(), Crop()
+    Utility().ensure_output_dir(args.output)
     if args.resize:
         if args.picture:
             resize.resize(args.picture, args.output, args.width, args.height)
