@@ -11,7 +11,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 def extension(mypath, outputpath, convert):
-    outfilepath = os.path.join(outputpath, id_generator() + "." + imghdr.what(mypath) )
+    outfilepath = os.path.join(outputpath, id_generator() )
     f, e = os.path.splitext(mypath)
     outfile = outfilepath + convert
     print convert
@@ -32,7 +32,7 @@ def convertlist(mypath, outputpath, convert):
         except:
             pass
     for y in onlyimagefile:
-        convertion(os.path.join(mypath,y), outputpath, convert)
+        extension(os.path.join(mypath,y), outputpath, convert)
     print onlyimagefile
 
 def rotate(mypath, outputpath, degree):
@@ -82,6 +82,8 @@ parser.add_argument("-rz","--resize", help="image to be resize",
                     action="store_true")
 parser.add_argument("-ro","--rotate", help="image to rotate",
                     action="store_true")
+parser.add_argument("-con","--conversion", help="images to convert extension",
+                    action="store_true")
 parser.add_argument("-p","--picture", help="display the resized image")
 parser.add_argument("-o","--output", help="image path")
 parser.add_argument("-d","--directory", help="path directory")
@@ -104,8 +106,9 @@ elif args.rotate:
             rotate(args.picture, args.output, args.degree)
         elif args.directory:
             rotatelist(args.directory, args.output, args.degree)
-elif args.convert:
-    if args.picture:
-        extension(args.picture, args.output, args.convert)
-    elif args.directory:
-        convertlist(args.directory, args.output, args.convert)
+elif args.conversion:
+    if args.convert:
+        if args.picture:
+            extension(args.picture, args.output, args.convert)
+        elif args.directory:
+            convertlist(args.directory, args.output, args.convert)
